@@ -80,3 +80,5 @@ startActivity(sendIntent);
 
 # 5. 권한 선언
 
+manifest의 <activity> 태그를 사용하여 특정 활동을 시작할 수 있는 앱을 제어할 수 있다. 상위 활동과 하위 활동이 모두 각 manifest에서 동일한 권한을 가지고 있지 않다면 상위 활동이 하위 활동을 실행할 수 없다. 상위 활동에서 <uses-permission> 요소를 선언할 때에는 각 하위 활동에 일치하는 <uses-permission> 요소가 있어야 한다.
+
