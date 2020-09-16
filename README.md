@@ -82,3 +82,24 @@ startActivity(sendIntent);
 
 manifest의 <activity> 태그를 사용하여 특정 활동을 시작할 수 있는 앱을 제어할 수 있다. 상위 활동과 하위 활동이 모두 각 manifest에서 동일한 권한을 가지고 있지 않다면 상위 활동이 하위 활동을 실행할 수 없다. 상위 활동에서 <uses-permission> 요소를 선언할 때에는 각 하위 활동에 일치하는 <uses-permission> 요소가 있어야 한다.
 
+예를 들어 앱에서 SocialApp 이라는 가상의 앱을 사용하여 소셜 미디어의 게시물을 공유하려면 다음과 같이 게시물을 호출하는 앱이 보유해야 하는 권한을 SocialApp 자체에서 정의해야 한다
+
+```
+<manifest>
+<activity android:name="...."
+    android:permission="com.google.socialapp.permission.SHARE_POST"
+/>
+```
+
+다음과 같이 앱의 권한이 SocialApp의 manifest에 설정된 권한과 일치해야 SocialApp을 호출할 수 있습니다.
+
+```
+<manifest>
+    <uses-permission android:name="com.google.socialapp.permission.SHARE_POST" />
+</manifest>
+```
+
+# 6. 활동 수명 주기 관리
+
+활동은 수명 주기 전체 기간에 걸쳐 여러 상태를 거친다. 상태 간 전환을 처리하는데 일련의 콜백을 사용할 수 있다.
+
